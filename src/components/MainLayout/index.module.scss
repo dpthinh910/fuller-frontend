@@ -1,0 +1,11 @@
+.layoutDashboard {
+  text-align: left;
+  position: relative;
+  overflow-x: hidden;
+  :global {
+    .ant-layout-content {
+      padding: 0;
+      margin: 20px 20px 0;
+    }
+  }
+}

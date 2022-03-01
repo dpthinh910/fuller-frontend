@@ -1,0 +1,83 @@
+@import '~antd/es/style/themes/default.less';
+
+@border-radius-base: 8px;
+@border-radius-sm: 5px;
+@shadow-color: rgba(0, 0, 0, 0.05);
+@shadow-1-down: 4px 4px 40px @shadow-color;
+@border-color-split: #f4f4f4;
+@border-color-base: #e5e5e5;
+@font-size-base: 13px;
+@text-color: #666;
+@hover-color: #f9f9fc;
+@transparent-color: transparent;
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+.ant-layout {
+  min-height: 100%;
+  height: 100%;
+  overflow: auto;
+}
+
+.ant-list-item {
+  padding: 12px 12px !important;
+}
+
+.ant-table-cell .ant-btn.ant-btn-link {
+  padding: 0 4px !important;
+}
+
+.ant-btn + .ant-btn {
+  margin-left: 10px !important;
+}
+
+.ant-drawer-body {
+  padding: 0;
+}
+
+.ant-card {
+  border-radius: @border-radius-base !important;
+  box-shadow: 0 20px 27px rgb(0 0 0 / 5%) !important;
+}
+
+ul,
+ol {
+  list-style: none;
+}
+
+.ant-menu-dark.ant-menu-dark:not(.ant-menu-horizontal) .ant-menu-item-selected {
+  background: #494e64;
+  border-radius: @border-radius-sm;
+}
+
+.ant-btn-primary {
+  background-color: #1c223d;
+  border-color: #1c223d;
+}
+.ant-btn-primary:hover,
+.ant-btn-primary:focus {
+  background: #1c223d;
+  border-color: #1c223d;
+  opacity: 0.9;
+}
+
+@media (max-width: @screen-xs) {
+  .ant-table {
+    width: 100%;
+    overflow-x: auto;
+    &-thead > tr,
+    &-tbody > tr {
+      > th,
+      > td {
+        white-space: pre;
+        > span {
+          display: block;
+        }
+      }
+    }
+  }
+}

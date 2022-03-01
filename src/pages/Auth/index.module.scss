@@ -1,0 +1,31 @@
+.loginPage {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: url('src/assets/login/background-login.svg') #263062;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  &Form {
+    margin: 0 20px;
+    padding: 50px 40px !important;
+    width: 450px;
+    min-width: 300px;
+    background: #ffffff;
+    border-radius: 0.25rem;
+
+    p {
+      text-align: center;
+      color: #263062;
+      font-weight: bold;
+    }
+  }
+  &Forgot {
+    text-align: center;
+  }
+}
+
+.siteIcon {
+  color: #c7c7c7;
+}
