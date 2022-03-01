@@ -1,4 +1,5 @@
 # Fullerton-Frontend Dashboard
+
 ## ReactTS 17 with Ant Design and Vite
 
 This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang.org/) + [Ant Design](https://ant.design) project built with [Vite](https://vitejs.dev). It also includes [Husky](https://typicode.github.io/husk) and a pre-commit hook that runs `yarn lint-staged`.

@@ -1,15 +1,16 @@
 import React from 'react';
 import { Button, Card, Col, Divider, Empty, Row, Space, Typography } from 'antd';
-import { formatDate } from 'src/utils/formatDate';
 import { UserOutlined } from '@ant-design/icons';
 import { showCancelModal } from './UpdateStatus';
 import { Spinner } from 'src/components/Elements';
+import { CreateBookingModal } from './CreateBooking';
 import { useGetAllBookingsUser } from '../api/getListUser';
 import { useDeleteBooking } from '../api/delete';
 import styles from '../index.module.scss';
 import { useAuth } from 'src/lib/auth';
 
 export const UserBooking = () => {
+  const [visible, setVisible] = React.useState<boolean>(false);
   const { user } = useAuth();
   const { data, isLoading, isSuccess } = useGetAllBookingsUser({
     userId: user!._id,
@@ -23,13 +24,18 @@ export const UserBooking = () => {
 
   if (!data) return null;
 
+  const onCancel = () => {
+    setVisible(() => false);
+  };
+
   return (
     <>
       <Card bordered={false}>
         <Space className={styles.sampleCard} size="middle">
-          <div>
-            <Typography.Title level={4}>All Bookings</Typography.Title>
-          </div>
+          <Typography.Title level={4}>All Bookings</Typography.Title>
+          <Button onClick={() => setVisible(true)} type="primary">
+            + Create new booking
+          </Button>
           <Space split={<Divider type="vertical" />}></Space>
         </Space>
         <Divider />
@@ -88,6 +94,7 @@ export const UserBooking = () => {
         </Row>
         {data.length === 0 && <Empty />}
       </Card>
+      <CreateBookingModal userId={user?._id} visible={visible} onCancel={onCancel} />
     </>
   );
 };
