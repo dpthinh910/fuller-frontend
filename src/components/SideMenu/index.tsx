@@ -1,6 +1,6 @@
 import React from 'react';
 import { Menu } from 'antd';
-import { HomeOutlined } from '@ant-design/icons';
+import { FileImageOutlined, HomeOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
 import logo from 'src/assets/logo/logo.png';
 import styles from './index.module.scss';
@@ -22,6 +22,9 @@ const SideNav = ({ location }: SideMenuProps) => {
       <Menu mode="inline" theme="dark" selectedKeys={[location.pathname]}>
         <Menu.Item key={currentMenuKey('/app')} icon={<HomeOutlined />}>
           <Link to="">Dashboard</Link>
+        </Menu.Item>
+        <Menu.Item key={currentMenuKey('/bookings')} icon={<FileImageOutlined />}>
+          <Link to="bookings">Bookings</Link>
         </Menu.Item>
       </Menu>
     </>

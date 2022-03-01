@@ -7,12 +7,13 @@ import { storage } from 'src/utils/localStorage';
 async function handleUserResponse(response: UserResponse) {
   const { user, token } = response;
   storage.setToken(token);
+  storage.setRole(user.role);
   return user;
 }
 
 async function loadUser() {
   if (storage.getToken()) {
-    const { data } = await getUser();
+    const data = await getUser();
     return data;
   }
   return null;
@@ -26,6 +27,7 @@ async function loginFn(data: UserLoginDTO) {
 
 async function logoutFn() {
   storage.clearToken();
+  storage.clearRole();
   window.location.assign(window.location.origin as unknown as string);
 }
 

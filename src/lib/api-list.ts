@@ -1,8 +1,9 @@
 export const API = {
   login: `/auth/login`,
   getUserProfile: `/auth/profile`,
-  postEffect: `admin/effects`,
-  deleteEffect: (effectId: string) => `admin/effects/${effectId}`,
-  getOneEffect: (effectId: string | number | undefined) => `admin/effects/${effectId}`,
-  updateEffect: (effectId: string | number) => `admin/effects/${effectId}`,
+  getAllBookingsAdmin: `bookings/admin`,
+  updateBookingAdmin: (id: string) => `bookings/admin/${id}`,
+  getAllBookingsUser: ({ userId }: { userId: string }) => `bookings?userId=${userId}`,
+  createNewBooking: `bookings`,
+  deleteBooking: (id: string, userId: string) => `bookings/${id}?userId=${userId}`,
 };

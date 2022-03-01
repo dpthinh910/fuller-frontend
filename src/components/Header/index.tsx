@@ -10,9 +10,7 @@ const { SubMenu } = Menu;
 
 const Header = ({ fixed, onPress, pathname }: HeaderProps) => {
   const { logout, user } = useAuth();
-  const name = pathname.includes('app/')
-    ? pathname.replace('app/', '').split('/')[0]
-    : pathname.replace('app', `dashboard`);
+  const name = pathname.includes('app/') ? pathname.replace('app/', '').split('/')[0] : pathname.replace('app', '');
 
   const username = user?.username;
 

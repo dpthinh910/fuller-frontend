@@ -5,8 +5,10 @@ import MainLayout from 'src/components/MainLayout';
 import { lazyImport } from 'src/utils/lazyImport';
 
 const { NotFoundPage } = lazyImport(() => import('src/pages/404NotFound'), 'NotFoundPage');
+const { BookingList } = lazyImport(() => import('src/pages/Booking/components/BookingList'), 'BookingList');
+const { AdminBookingRoutes } = lazyImport(() => import('src/pages/Booking/'), 'AdminBookingRoutes');
 
-const App = () => {
+const MainAppLayout = () => {
   return (
     <MainLayout>
       <Suspense fallback={<Spinner />}>
@@ -19,9 +21,10 @@ const App = () => {
 export const protectedRoutes = [
   {
     path: '/app',
-    element: <App />,
+    element: <MainAppLayout />,
     children: [
-      // { index: true, element: <Home /> },
+      { index: true, element: <BookingList /> },
+      { path: 'bookings/*', element: <AdminBookingRoutes /> },
     ],
   },
   {
