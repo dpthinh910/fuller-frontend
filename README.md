@@ -1,15 +1,14 @@
-# Digtek-CMS
-## ReactTS 17 with Chakra UI and Vite
+# Fullerton-Frontend Dashboard
+## ReactTS 17 with Ant Design and Vite
 
-This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang.org/) + [Chakra UI](https://chakra-ui.com) project built with [Vite](https://vitejs.dev). It also includes [Husky](https://typicode.github.io/husk) and a pre-commit hook that runs `yarn lint-staged`.
+This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang.org/) + [Ant Design](https://ant.design) project built with [Vite](https://vitejs.dev). It also includes [Husky](https://typicode.github.io/husk) and a pre-commit hook that runs `yarn lint-staged`.
 
 ## What's inside?
 
 - [ReactJS](https://reactjs.org)
 - [Vite](https://vitejs.dev)
 - [TypeScript](https://www.typescriptlang.org)
-- [Chakra UI](https://chakra-ui.com)
-- [Framer Motion](https://www.framer.com/motion/)
+- [Ant Design](https://ant.design)
 - [Eslint](https://eslint.org)
 - [Prettier](https://prettier.io)
 - [Husky](https://typicode.github.io/husky)
@@ -21,7 +20,7 @@ This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang
 1. Clone this project.
 
    ```bash
-   git clone https://github.com/vitalifyjp/Digtek-CMS.git my-app
+   git clone https://github.com/dpthinh910/fullerton-frontend.git my-app
    ```
 
 2. Access the project directory.
