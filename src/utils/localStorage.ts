@@ -1,6 +1,6 @@
 import Cookie from 'universal-cookie';
 
-const prefix = 'baller_dashboard_';
+const prefix = 'dashboard_';
 const cookie = new Cookie();
 
 export const storage = {
@@ -17,6 +17,19 @@ export const storage = {
   },
   clearToken: () => {
     window.localStorage.removeItem(`${prefix}token`);
+  },
+  setRole: (role: string) => {
+    window.localStorage.setItem(`${prefix}role`, JSON.stringify(role));
+  },
+  getRole: () => {
+    try {
+      JSON.parse(window.localStorage.getItem(`${prefix}role`) as string);
+    } catch (e) {
+      return null;
+    }
+  },
+  clearRole: () => {
+    window.localStorage.removeItem(`${prefix}role`);
   },
 };
 

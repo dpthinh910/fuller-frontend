@@ -1,0 +1,13 @@
+.sampleCard {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: flex-end;
+  @media (max-width: 576px) {
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    gap: 1em;
+    text-align: center;
+  }
+}
