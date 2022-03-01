@@ -17,23 +17,23 @@ type UseDeleteBooking = {
 export const useDeleteBooking = ({ config }: UseDeleteBooking = {}) => {
   return useMutation({
     onMutate: async deleteBooking => {
-      await queryClient.cancelQueries('bookings');
+      await queryClient.cancelQueries('bookingsUser');
 
-      const previousBookings = queryClient.getQueryData<BookingResponse[]>('bookings');
+      const previousBookings = queryClient.getQueryData<BookingResponse[]>('bookingsUser');
 
       queryClient.setQueryData(
-        'bookings',
+        'bookingsUser',
         previousBookings?.filter(booking => booking._id.toString() !== deleteBooking.id)
       );
       return { previousBookings };
     },
     onError: (_, __, context: any) => {
       if (context?.previousBookings) {
-        queryClient.setQueryData('bookings', context.previousBookings);
+        queryClient.setQueryData('bookingsUser', context.previousBookings);
       }
     },
     onSuccess: () => {
-      queryClient.invalidateQueries('bookings');
+      queryClient.invalidateQueries('bookingsUser');
     },
     ...config,
     mutationFn: deleteBooking,

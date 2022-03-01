@@ -15,7 +15,7 @@ type UseBookingsOptions = {
   config?: QueryConfig<typeof getAllBookingsByUser>;
 };
 
-export const useGetAllBookingsAdmin = ({ config, userId }: UseBookingsOptions) => {
+export const useGetAllBookingsUser = ({ config, userId }: UseBookingsOptions) => {
   return useQuery({
     queryKey: ['bookingsUser'],
     queryFn: () => getAllBookingsByUser(userId),

@@ -1,11 +1,10 @@
 import React from 'react';
-import { Button, Card, Col, Divider, Empty, Input, Row, Space, Switch, Typography } from 'antd';
+import { Button, Card, Col, Divider, Empty, Row, Space, Typography } from 'antd';
 import { useGetAllBookingsAdmin } from '../api/getListAdmin';
 import { formatDate } from 'src/utils/formatDate';
-import { DeleteOutlined, PictureFilled, UserOutlined, YoutubeOutlined } from '@ant-design/icons';
+import { UserOutlined } from '@ant-design/icons';
 import { Link } from 'react-router-dom';
-// import { showDeleteModal } from './DeleteSample';
-// import { showUpdateModal } from './UpdateSample';
+import { showApproveModal, showRejectModal } from './UpdateStatus';
 import { Spinner } from 'src/components/Elements';
 import { useUpdateBooking } from '../api/update';
 import styles from '../index.module.scss';
@@ -39,20 +38,50 @@ export const BookingList = () => {
                   bordered={true}
                   hoverable
                   actions={[
-                    <Button
-                      // onClick={() =>
-                      //   showUpdateModal({
-                      //     sampleId: sample.id.toString(),
-                      //     updateMutation: useUpdateSampleMutation,
-                      //   })
-                      // }
-                      key="status"
-                      size="small"
-                      type={booking.status == 'pending' ? 'link' : booking.status == 'rejected' ? 'text' : 'primary'}
-                      disabled={booking.status === 'rejected'}
-                    >
-                      status: {booking.status}
-                    </Button>,
+                    <>
+                      <Button
+                        key="status"
+                        size="small"
+                        shape="round"
+                        type={booking.status == 'pending' ? 'link' : 'text'}
+                        disabled={booking.status === 'rejected'}
+                      >
+                        status: {booking.status}
+                      </Button>
+                      {booking.status === 'pending' ? (
+                        <Space style={{ paddingTop: '1em' }}>
+                          <Button
+                            onClick={() =>
+                              showApproveModal({
+                                id: booking._id,
+                                updateMutation: useUpdateBookingMutation,
+                                data: booking,
+                              })
+                            }
+                            type="primary"
+                            size="small"
+                            shape="round"
+                          >
+                            Approved
+                          </Button>
+                          <Button
+                            onClick={() =>
+                              showRejectModal({
+                                id: booking._id,
+                                updateMutation: useUpdateBookingMutation,
+                                data: booking,
+                              })
+                            }
+                            type="text"
+                            danger
+                            size="small"
+                            shape="round"
+                          >
+                            Rejected
+                          </Button>
+                        </Space>
+                      ) : null}
+                    </>,
                   ]}
                 >
                   <Card.Meta

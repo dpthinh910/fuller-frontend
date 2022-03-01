@@ -25,20 +25,20 @@ type UseCreateBookingOptions = {
 export const useCreateBooking = ({ config }: UseCreateBookingOptions = {}) => {
   return useMutation({
     onMutate: async newBooking => {
-      await queryClient.cancelQueries('bookings');
+      await queryClient.cancelQueries('bookingsUser');
 
-      const previousBookings = queryClient.getQueryData<any>('bookings');
-      queryClient.setQueryData('bookings', [...(previousBookings?.data || []), newBooking.data]);
+      const previousBookings = queryClient.getQueryData<any>('bookingsUser');
+      queryClient.setQueryData('bookingsUser', [...(previousBookings?.data || []), newBooking.data]);
 
       return { previousBookings };
     },
     onError: (_, __, context: any) => {
       if (context?.previousBookings) {
-        queryClient.setQueryData('bookings', context.previousBookings);
+        queryClient.setQueryData('bookingsUser', context.previousBookings);
       }
     },
     onSuccess: () => {
-      queryClient.invalidateQueries('bookings');
+      queryClient.invalidateQueries('bookingsUser');
     },
     ...config,
     mutationFn: createBooking,

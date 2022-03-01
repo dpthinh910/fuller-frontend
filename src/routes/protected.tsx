@@ -6,7 +6,7 @@ import { lazyImport } from 'src/utils/lazyImport';
 
 const { NotFoundPage } = lazyImport(() => import('src/pages/404NotFound'), 'NotFoundPage');
 const { BookingList } = lazyImport(() => import('src/pages/Booking/components/BookingList'), 'BookingList');
-const { AdminBookingRoutes } = lazyImport(() => import('src/pages/Booking/'), 'AdminBookingRoutes');
+const { UserBooking } = lazyImport(() => import('src/pages/Booking/components/UserBooking'), 'UserBooking');
 
 const MainAppLayout = () => {
   return (
@@ -18,17 +18,21 @@ const MainAppLayout = () => {
   );
 };
 
-export const protectedRoutes = [
-  {
-    path: '/app',
-    element: <MainAppLayout />,
-    children: [
-      { index: true, element: <BookingList /> },
-      { path: 'bookings/*', element: <AdminBookingRoutes /> },
-    ],
-  },
-  {
-    path: '*',
-    element: <NotFoundPage />,
-  },
-];
+export const ProtectedRoutes = () => {
+  return [
+    {
+      path: '/app',
+      element: <MainAppLayout />,
+      children: [{ index: true, element: <BookingList /> }],
+    },
+    {
+      path: `/user`,
+      element: <MainAppLayout />,
+      children: [{ index: true, element: <UserBooking /> }],
+    },
+    {
+      path: '*',
+      element: <NotFoundPage />,
+    },
+  ];
+};

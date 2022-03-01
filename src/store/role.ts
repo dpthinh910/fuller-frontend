@@ -5,8 +5,8 @@ type RoleDetectorStore = {
   setRole: (role: string) => void;
 };
 
-export const useLanguageDetectorStore = create<RoleDetectorStore>(set => ({
-  role: window.localStorage.getItem('dashboard_role') as string,
+export const useRoleDetectorStore = create<RoleDetectorStore>(set => ({
+  role: JSON.parse(window.localStorage.getItem('dashboard_role') as string),
   setRole: (role: string) =>
     set(() => ({
       role: role,
