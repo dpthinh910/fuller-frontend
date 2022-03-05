@@ -4,13 +4,6 @@
 
 This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang.org/) + [Ant Design](https://ant.design) project built with [Vite](https://vitejs.dev). It also includes [Husky](https://typicode.github.io/husk) and a pre-commit hook that runs `yarn lint-staged`.
 
-## Login information
-1. Admin role
-- username: admin / password: Fullerton123
-2. User role
-- username: user / password: Fullerton123
-- username: user2 / password: Fullerton123
-
 ## What's inside?
 
 - [ReactJS](https://reactjs.org)
