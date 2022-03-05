@@ -28,7 +28,7 @@ This is a [React](https://reactjs.org) + [TypeScript](https://www.typescriptlang
 1. Clone this project.
 
    ```bash
-   git clone https://github.com/dpthinh910/fullerton-frontend.git my-app
+   git clone https://github.com/dpthinh910/fuller-frontend.git my-app
    ```
 
 2. Access the project directory.
